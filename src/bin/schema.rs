@@ -4,7 +4,7 @@ use std::fs::create_dir_all;
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
 use empty_contract::msg::{
-    DetailsResponse, HandleMsg, InstantiateMsg, ListResponse, QueryMsg, ReceiveMsg,
+    HandleMsg, InstantiateMsg, QueryMsg, ReceiveMsg,
 };
 
 fn main() {
@@ -17,6 +17,4 @@ fn main() {
     export_schema(&schema_for!(HandleMsg), &out_dir);
     export_schema(&schema_for!(QueryMsg), &out_dir);
     export_schema(&schema_for!(ReceiveMsg), &out_dir);
-    export_schema(&schema_for!(DetailsResponse), &out_dir);
-    export_schema(&schema_for!(ListResponse), &out_dir);
 }
