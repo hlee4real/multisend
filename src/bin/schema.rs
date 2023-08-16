@@ -3,7 +3,7 @@ use std::fs::create_dir_all;
 
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
-use cw20_escrow::msg::{
+use contract::msg::{
     DetailsResponse, HandleMsg, InstantiateMsg, ListResponse, QueryMsg, ReceiveMsg,
 };
 
