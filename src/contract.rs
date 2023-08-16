@@ -11,7 +11,7 @@ use crate::msg::{HandleMsg, InstantiateMsg, QueryMsg, ReceiveMsg};
 use crate::state::Recipient;
 
 // version info for migration info
-const CONTRACT_NAME: &str = "cw20-multisender";
+const CONTRACT_NAME: &str = "empty-contract";
 const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub fn instantiate(
