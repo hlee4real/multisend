@@ -9,12 +9,12 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-cosmwasm-std = { version = "0.14.0" }
-cosmwasm-storage = { version = "0.14.0" }
-cw-storage-plus = "0.6.0"
-cw20 = "0.6.1"
-cw2 = "0.6.1"
-schemars = "0.8.1"
-serde = { version = "1.0.125", default-features = false, features = ["derive"] }
-thiserror = { version = "1.0.24" }
-cosmwasm-schema = "0.14.1"
+cosmwasm-schema = "1.1.3"
+cosmwasm-std = "1.1.3"
+cosmwasm-storage = "1.1.3"
+cw-storage-plus = "1.0.1"
+cw2 = "1.0.1"
+cw20 = "1.0.1"
+schemars = "0.8.10"
+serde = { version = "1.0.145", default-features = false, features = ["derive"] }
+thiserror = { version = "1.0.31" }

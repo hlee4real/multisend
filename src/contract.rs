@@ -1,7 +1,9 @@
+#[cfg(not(feature = "library"))]
 use cosmwasm_std::{
     attr, from_binary, to_binary, Api, BankMsg, Binary, CosmosMsg, Deps, DepsMut, Env, MessageInfo,
     Response, StdResult, WasmMsg,
 };
+use cosmwasm_std::entry_point;
 
 use cw2::set_contract_version;
 use cw20::{Balance, Cw20ExecuteMsg, Cw20ReceiveMsg, Cw20CoinVerified};
@@ -14,6 +16,7 @@ use crate::state::Recipient;
 const CONTRACT_NAME: &str = "empty-contract";
 const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     deps: DepsMut,
     _env: Env,
@@ -25,6 +28,7 @@ pub fn instantiate(
     Ok(Response::default())
 }
 
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn execute(
     deps: DepsMut,
     env: Env,
@@ -37,6 +41,7 @@ pub fn execute(
     }
 }
 
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn execute_receive(
     deps: DepsMut,
     info: MessageInfo,
@@ -52,18 +57,14 @@ pub fn execute_receive(
     }
 }
 
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn execute_send(
     deps: DepsMut,
     recipients: Vec<Recipient>,
 ) -> Result<Response, ContractError> {
     let messages = send_tokens(deps.api, recipients)?;
     let attributes = vec![attr("action", "send")];
-    Ok(Response {
-        submessages: vec![],
-        messages,
-        attributes,
-        data: None,
-    })
+    Ok(Response::default())
 }
 
 fn send_tokens(
@@ -95,7 +96,7 @@ fn send_tokens(
                 let exec = WasmMsg::Execute {
                     contract_addr: c.clone().address.to_string(),
                     msg: to_binary(&msg)?,
-                    send: vec![],
+                    funds: vec![],
                 };
                 Ok(exec.into())
             })
