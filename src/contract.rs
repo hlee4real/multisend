@@ -64,7 +64,7 @@ pub mod execute {
     ) -> Result<Response, ContractError> {
         let messages = send_tokens(deps.api, recipients)?;
         let attributes = vec![attr("action", "send")];
-        Ok(Response::default())
+        Ok(Response::default().add_messages(messages))
     }
 
     fn send_tokens(

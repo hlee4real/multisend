@@ -1,0 +1,1 @@
+c09013d9face5eda001ecac1d3d8882a042dec02cfcd3869429c5640318bf4cd  ./target/wasm32-unknown-unknown/release/empty_contract.wasm
